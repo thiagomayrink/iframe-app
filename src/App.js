@@ -4,10 +4,10 @@ function App() {
 
   let closeIframe = () => {
     let url =
-      window.location != window.parent.location
+      window.location !== window.parent.location
         ? document.referrer
         : document.location.href;
-    window.parent.postMessage({message: "close-iframe", boolean: false}, url);
+    window.parent.postMessage({message: "close-checkout", provider: 'VTEX'}, url);
   };
 
   return (
