@@ -7,7 +7,7 @@ function App() {
       window.location != window.parent.location
         ? document.referrer
         : document.location.href;
-    window.parent.postMessage("close-iframe", url);
+    window.parent.postMessage({message: "close-iframe", boolean: false}, url);
   };
 
   return (
