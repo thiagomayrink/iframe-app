@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  let closeIframe = () => {
+    let url =
+      window.location != window.parent.location
+        ? document.referrer
+        : document.location.href;
+    window.parent.postMessage("close-iframe", url);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='App-body'>
+        <div className="close-btn">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a href="#" onClick={closeIframe}>Close iframe</a>
+        </div>
+      </div>   
     </div>
   );
 }
